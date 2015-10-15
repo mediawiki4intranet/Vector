@@ -268,6 +268,21 @@ class VectorTemplate extends BaseTemplate {
 
 			switch ( $name ) {
 				case 'SEARCH':
+					global $wgUseTwoButtonsSearchForm;
+?>
+<div id="po-search" class="portal">
+	<div id="searchBody2" class="pBody">
+		<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
+			<div>
+				<?php echo $this->makeSearchInput( array( 'id' => 'searchInput2', 'class' => 'mw-searchInput' ) ); ?>
+				<?php echo $this->makeSearchButton( 'go', array( 'id' => 'searchGoButton2', 'class' => 'searchButton' ) ); ?>
+				<?php echo $this->makeSearchButton( 'fulltext', array( 'id' => 'mw-searchButton2', 'class' => 'searchButton' ) ); ?>
+				<input type='hidden' name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
+			</div>
+		</form>
+	</div>
+</div>
+<?php
 					break;
 				case 'TOOLBOX':
 					$this->renderPortal( 'tb', $this->getToolbox(), 'toolbox', 'SkinTemplateToolboxEnd' );
